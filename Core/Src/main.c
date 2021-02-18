@@ -99,8 +99,6 @@ int main(void)
   uint32_t TimeStamp2 =0;
   uint32_t ButtonTimeStamp = 0;
 
-  unsigned char segment = 10;
-  unsigned char bright;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -188,7 +186,7 @@ int main(void)
 			  }
 
 		 //PWM LED
-		 HAL_GPIO_WritePin(GPIOx, GPIO_Pin, PinState)
+//		 HAL_GPIO_WritePin(GPIOx, GPIO_Pin, PinState)
 
 
 //		 if (HAL_GetTick() - TimeStamp2 >= LED_SET){
@@ -202,7 +200,7 @@ int main(void)
 //				  LED_SET =1500;
 //			  }
 
-		 }
+//		 }
 
 		 SwitchState1[1] = SwitchState1[0];
 		 SwitchState2[1] = SwitchState2[0];
