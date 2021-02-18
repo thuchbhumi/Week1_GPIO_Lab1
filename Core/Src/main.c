@@ -91,12 +91,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
   GPIO_PinState SwitchState1[2];	//Now,Last
   GPIO_PinState SwitchState2[2];
-  GPIO_PinState SwitchState3[2];
-  uint8_t LED_SET = 0;
   uint16_t LED1_HalfPeriod = 125;
-  uint16_t LED_TIME= 0;
+  uint16_t LED3_HalfPeriod = 125;
   uint32_t TimeStamp =0;
-  uint32_t TimeStamp2 =0;
   uint32_t ButtonTimeStamp = 0;
 
   /* USER CODE END 2 */
@@ -113,9 +110,6 @@ int main(void)
 		  //switch press is LOW
 		  SwitchState1[0] = HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_10);		//0 1
 		  SwitchState2[0] = HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_3);
-		  SwitchState3[0] = HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_5);
-
-		  //LED Frequency
 		  if(SwitchState1[1] == GPIO_PIN_SET && SwitchState1[0] == GPIO_PIN_RESET){		//1 0
 			  if(LED1_HalfPeriod == 125){
 				  LED1_HalfPeriod =250;
@@ -134,27 +128,18 @@ int main(void)
 			  }
 		 }
 
-		  //Run LED
-		  if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod){
-			  TimeStamp = HAL_GetTick();
-			  if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) == GPIO_PIN_SET){
-				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
-			  }
-			  else{
-				  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
-			  }
-		  }
-
-		 //ON OFF LED
-		 if(SwitchState2[1] == GPIO_PIN_RESET && SwitchState2[0] == GPIO_PIN_SET){
-			 if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7) == GPIO_PIN_RESET){
-				  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_SET);
-			  }
-			  else{
+		 if(SwitchState2[1] == GPIO_PIN_RESET && SwitchState2[0] == GPIO_PIN_SET){		// 0 1
+			 if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_7) == GPIO_PIN_SET){
 				  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_RESET);
 			  }
+			  else{
+				  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, GPIO_PIN_SET);
+			  }
 		 }
+		 SwitchState1[1] = SwitchState1[0];		//1 0
+		 SwitchState2[1] = SwitchState2[0];
 
+<<<<<<< HEAD
 		 //Run LED_SET
 		 if(SwitchState3[1] == GPIO_PIN_RESET && SwitchState3[0] == GPIO_PIN_SET){
 			 if(LED_SET == 0){
@@ -201,11 +186,21 @@ int main(void)
 //			  }
 
 //		 }
-
-		 SwitchState1[1] = SwitchState1[0];
-		 SwitchState2[1] = SwitchState2[0];
-		 SwitchState3[1] = SwitchState3[0];
+=======
 	  }
+	  //Run LED
+	  if (HAL_GetTick() - TimeStamp >= LED1_HalfPeriod){
+		  TimeStamp = HAL_GetTick();
+		  if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9) == GPIO_PIN_SET){
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
+		  }
+		  else{
+			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_SET);
+		  }
+	  }
+
+>>>>>>> parent of 82e1c15 (Test Pass Lab1.1,Lab1.2,Lab1.3,)
+
   }
   /* USER CODE END 3 */
 }

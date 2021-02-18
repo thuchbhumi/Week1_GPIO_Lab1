@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+=======
+main.c:66:5:main	32	static
+main.c:162:6:SystemClock_Config	88	static
+main.c:207:13:MX_USART2_UART_Init	8	static
+main.c:240:13:MX_GPIO_Init	48	static
+main.c:308:6:Error_Handler	4	static,ignoring_inline_asm
+>>>>>>> parent of 82e1c15 (Test Pass Lab1.1,Lab1.2,Lab1.3,)
