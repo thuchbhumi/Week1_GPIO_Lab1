@@ -98,6 +98,9 @@ int main(void)
   uint32_t TimeStamp =0;
   uint32_t TimeStamp2 =0;
   uint32_t ButtonTimeStamp = 0;
+
+  unsigned char segment = 10;
+  unsigned char bright;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -183,6 +186,9 @@ int main(void)
 					  LED_TIME = 500;
 				  }
 			  }
+
+		 //PWM LED
+		 HAL_GPIO_WritePin(GPIOx, GPIO_Pin, PinState)
 
 
 //		 if (HAL_GetTick() - TimeStamp2 >= LED_SET){
